@@ -43,6 +43,7 @@ env:
   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
   TMATE_ENCRYPT_PASSWORD: ${{secrets.TMATE_ENCRYPT_PASSWORD}}
   # Not recommended to change unless you understand how it is used
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: True
   # 以下参数不推荐修改
   DK_BUILDX_DRIVER: docker
   DK_CONTEXT: .
