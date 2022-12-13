@@ -294,7 +294,8 @@ jobs:
           mkdir "$(pwd)/openwrt"
         fi
         copy_files /home/builder/openwrt/bin "$(pwd)/openwrt/bin"
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+    #    echo "::set-output name=status::success"
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
@@ -312,7 +313,8 @@ jobs:
         rm -f openwrt-imagebuilder-*.tar.xz
         rm -f openwrt-sdk-*.tar.xz
         echo "::set-env name=FIRMWARE::$(pwd)"
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+      #  echo "::set-output name=status::success"
   
     - name: Upload firmware
       uses: actions/upload-artifact@master
@@ -540,7 +542,8 @@ jobs:
           mkdir "$(pwd)/openwrt"
         fi
         copy_files /home/builder/openwrt/bin "$(pwd)/openwrt/bin"
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+    # echo "::set-output name=status::success"
 
     - name: Filter out firmware files
       id: organize_1
@@ -550,7 +553,8 @@ jobs:
         cd openwrt/bin/targets/*/*
         all_extra_files=( !(packages) )
         rm -rf "${all_extra_files[@]}"
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+    # echo "::set-output name=status::success"
 
     - name: Upload packages
       uses: actions/upload-artifact@master
@@ -565,7 +569,8 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         find . -type f -not -newer ../../../../../.start_timestamp -exec rm -f {} \;
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+    # echo "::set-output name=status::success"
 
     - name: Upload new packages
       uses: actions/upload-artifact@master
@@ -648,9 +653,10 @@ jobs:
       id: mtcompile
       continue-on-error: true
       run: |
-        echo "::set-output name=started::yes"
+        echo "started=yes" >> $GITHUB_OUTPUT
         scripts/compile.sh m
-        echo "::set-output name=success::yes"
+        echo "success=yes" >> $GITHUB_OUTPUT
+    #    echo "::set-output name=success::yes"
 
     # previous failure will cause current job failure
     - name: Single-thread compile
@@ -676,7 +682,8 @@ jobs:
         rm -f openwrt-imagebuilder-*.tar.xz
         rm -f openwrt-sdk-*.tar.xz
         echo "::set-env name=FIRMWARE::$(pwd)"
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+    #    echo "::set-output name=status::success"
 
     - name: Upload firmware
       uses: actions/upload-artifact@master
