@@ -673,8 +673,6 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
-        rm -r openwrt-imagebuilder-*.tar.xz
-        rm -r openwrt-sdk-*.tar.xz
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
