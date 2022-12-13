@@ -247,7 +247,7 @@ jobs:
     - name: Debug set, wait for SSH connection (timeout 5min)
       if: env.OPT_DEBUG == '1'
       env:
-        TIMEOUT_MIN: 5
+        TIMEOUT_MIN: 10
         TMATE_DOCKER_IMAGE: ${{env.DK_LAST_BUILD_TARGET}}
       uses: tete1030/debugger-action@master
 
@@ -493,7 +493,7 @@ jobs:
     - name: Debug set, wait for SSH connection (timeout 5min)
       if: env.OPT_DEBUG == '1'
       env:
-        TIMEOUT_MIN: 5
+        TIMEOUT_MIN: 10
         TMATE_DOCKER_IMAGE: ${{env.DK_LAST_BUILD_TARGET}}
       uses: tete1030/debugger-action@master
 
