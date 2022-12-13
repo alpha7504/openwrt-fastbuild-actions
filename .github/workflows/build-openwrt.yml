@@ -244,7 +244,7 @@ jobs:
         build_image clone
 
     # Allow intermediate customization
-    - name: Debug set, wait for SSH connection (timeout 5min)
+    - name: Debug set, wait for SSH connection (timeout 10min)
       if: env.OPT_DEBUG == '1'
       env:
         TIMEOUT_MIN: 10
@@ -309,6 +309,8 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        rm -r openwrt-imagebuilder-*.tar.xz
+        rm -r openwrt-sdk-*.tar.xz
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
   
@@ -671,6 +673,8 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        rm -r openwrt-imagebuilder-*.tar.xz
+        rm -r openwrt-sdk-*.tar.xz
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
