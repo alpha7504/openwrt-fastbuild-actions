@@ -34,4 +34,4 @@ install_package() {
 # Note that to have it compiled, you also have to set its CONFIG_* options
 # Example:
 # install_package mentohust https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git
-install_package ntfs3 https://github.com/xymopen/openwrt-ntfs3;fixes-for-big-endian-systems
+# install_package ntfs3 https://github.com/xymopen/openwrt-ntfs3;fixes-for-big-endian-systems

@@ -17,4 +17,5 @@ else
     exit 1
   fi
   git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+  echo "src-git ntfs3 https://github.com/xymopen/openwrt-ntfs3;fixes-for-big-endian-systems"  >>  feeds.conf
 fi
